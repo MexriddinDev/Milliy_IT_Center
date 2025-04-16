@@ -13,11 +13,11 @@ class Company extends Model
     protected $fillable = [
         'name',
         'description',
+        'image',
         'logo',
-        'address',
-        'website',
-        'industry',
         'status',
-        'comment_to_mic',
+        'industry',
+        'website',
+        'location',
     ];
 }

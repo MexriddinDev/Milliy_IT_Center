@@ -19,16 +19,12 @@ class CompanyFactory extends Factory
         return [
             'name' => $this->faker->company(),
             'description' => $this->faker->text(),
+            'image' => $this->faker->imageUrl(),
             'logo' => $this->faker->imageUrl(),
-            'address' => $this->faker->address(),
+            'status' => $this->faker->sentence('7'),
+            'industry' => $this->faker->sentence('4'),
             'website' => $this->faker->url(),
-            'status' => $this->faker->randomElement([
-                'active', 'inactive'
-            ]),
-            'industry' => $this->faker->randomElement([
-                'banking', 'business', 'industrial', 'learning center'
-            ]),
-            'comment_to_mic' => $this->faker->text(),
+            'location' => $this->faker->address(),
         ];
     }
 }
