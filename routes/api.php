@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\API\BlogAnswerController;
 use App\Http\Controllers\API\BlogCategoryController;
 use App\Http\Controllers\API\BlogController;
+use App\Http\Controllers\API\BlogQuestionController;
 use App\Http\Controllers\API\ClientController;
 use App\Http\Controllers\API\CompanyController;
 use App\Http\Controllers\API\NevController;
 use App\Http\Controllers\API\NewCategoryController;
+use App\Http\Controllers\API\PartnerController;
 use App\Http\Controllers\API\ServiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +33,15 @@ Route::get('/blog', [BlogController::class, 'index']);
 
 Route::get('blog-category/{id}', [BlogCategoryController::class, 'show']);
 Route::get('blog-category', [BlogCategoryController::class, 'index']);
+
+Route::get('blog-answer/{id}', [BlogAnswerController::class, 'show']);
+Route::get('blog-answer', [BlogAnswerController::class, 'index']);
+
+Route::get('blog-question/{id}', [BlogQuestionController::class, 'show']);
+Route::get('blog-question', [BlogQuestionController::class, 'index']);
+
+Route::get('partners/{id}', [PartnerController::class, 'show']);
+Route::get('partners', [PartnerController::class, 'index']);
 
 
 

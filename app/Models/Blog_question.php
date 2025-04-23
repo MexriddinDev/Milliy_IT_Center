@@ -11,4 +11,8 @@ class Blog_question extends Model
         'blog_id',
         'text'
     ];
+
+    public function answers(){
+        return $this->hasMany(Blog_answer::class, 'blog_question_id');
+    }
 }
