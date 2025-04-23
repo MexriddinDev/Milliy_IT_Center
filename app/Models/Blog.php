@@ -14,4 +14,8 @@ class Blog extends Model
         'image',
         'recorded_by'
     ];
+
+    public function category(){
+        return $this->belongsTo(Blog_category::class, 'blog_category_id');
+    }
 }

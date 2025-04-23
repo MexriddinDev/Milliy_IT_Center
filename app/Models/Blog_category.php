@@ -10,4 +10,9 @@ class Blog_category extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function blog()
+    {
+        return $this->hasMany(Blog::class, 'blog_category_id');
+    }
 }
