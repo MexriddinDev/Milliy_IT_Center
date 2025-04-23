@@ -9,13 +9,14 @@ class ClientController extends Controller
 {
     public function index()
     {
-        $users = Client::all();
-        return response()->json($users);
+        return Client::all();
     }
-    public function store(Request $request)
+
+    public function show($id)
     {
-        $validator = $request->validated();
-        $client = Client::query()->create($validator);
-        return response()->json(['message' => 'Client created', 'client' => $client]);
+        return Client::findOrFail($id);
+
+
     }
+
 }

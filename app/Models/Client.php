@@ -15,6 +15,6 @@ class Client extends Model
         'phone',
         'company_name',
         'type_service',
-        'message'
+        'message',
     ];
 }

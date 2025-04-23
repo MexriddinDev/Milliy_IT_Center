@@ -6,6 +6,7 @@ use App\Http\Controllers\API\BlogController;
 use App\Http\Controllers\API\BlogQuestionController;
 use App\Http\Controllers\API\ClientController;
 use App\Http\Controllers\API\CompanyController;
+use App\Http\Controllers\API\EmployerController;
 use App\Http\Controllers\API\NevController;
 use App\Http\Controllers\API\NewCategoryController;
 use App\Http\Controllers\API\PartnerController;
@@ -16,8 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/users', [ClientController::class, 'index']);
 Route::post('/users', [ClientController::class, 'store']);
 
-Route::get('/clients', [CompanyController::class, 'index']);
-Route::get('/clients/{company}', [CompanyController::class, 'show']);
+Route::get('/clients', [ClientController::class, 'index']);
+Route::get('/clients/{id}', [ClientController::class, 'show']);
 
 Route::get('/services', [ServiceController::class, 'index']);
 Route::get('/services/{service}', [ServiceController::class, 'show']);
@@ -42,6 +43,10 @@ Route::get('blog-question', [BlogQuestionController::class, 'index']);
 
 Route::get('partners/{id}', [PartnerController::class, 'show']);
 Route::get('partners', [PartnerController::class, 'index']);
+
+Route::get('/employers/{id}', [EmployerController::class, 'show']);
+Route::get('/employers', [EmployerController::class, 'index']);
+
 
 
 
