@@ -12,4 +12,8 @@ class Comment extends Model
         'stars',
         'comment',
     ];
+
+    public function company(){
+        return $this->belongsTo(Company::class, 'company_id');
+    }
 }

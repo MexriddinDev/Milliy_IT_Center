@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Models\Comment;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CommentController extends Controller
+class CategoryController
 {
     public function index(){
-        return Comment::all();
+        return Category::all();
     }
 
     public function show($id)
     {
-        return Comment::findOrFail($id);
+        return Category::findOrFail($id);
     }
+
 
 
 }

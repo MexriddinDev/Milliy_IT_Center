@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Models\Category;
 use App\Models\Service;
 
+use Illuminate\Http\Request;
 class ServiceController extends Controller
 {
     public function index(): \Illuminate\Http\JsonResponse
@@ -13,8 +14,10 @@ class ServiceController extends Controller
         return response()->json($categories);
     }
 
-    public function show(Service $service)
+    public function show($id)
     {
-        return response()->json($service);
+        return Service::findOrFail($id);
     }
+
+
 }

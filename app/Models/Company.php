@@ -20,4 +20,10 @@ class Company extends Model
         'website',
         'location',
     ];
+
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'company_id');
+    }
 }

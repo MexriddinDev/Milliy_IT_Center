@@ -14,4 +14,16 @@ class Service extends Model
         'category_id',
         'name'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function descriptions()
+    {
+        return $this->hasMany(Service_description::class, 'service_id');
+    }
+
+
 }

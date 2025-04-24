@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Company;
+use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
@@ -11,8 +12,9 @@ class CompanyController extends Controller
         return Company::all()->sortByDesc('created_at');
     }
 
-    public function show(Company $company): \Illuminate\Http\JsonResponse
+    public function show($id)
     {
-        return response()->json($company);
+        return Company::findOrFail($id);
     }
+
 }
