@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CategoryController
 {
     public function index(){
-        return Category::all();
+        return Category::with('services')->get();
     }
 
     public function show($id)

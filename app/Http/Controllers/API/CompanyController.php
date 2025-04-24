@@ -9,7 +9,7 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        return Company::all()->sortByDesc('created_at');
+        return Company::all();
     }
 
     public function show($id)
