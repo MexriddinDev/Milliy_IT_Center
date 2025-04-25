@@ -9,7 +9,7 @@ class CompanyController extends Controller
 {
     public function index()
     {
-        return Company::all();
+        return Company::with('comments')->get();
     }
 
     public function show($id)

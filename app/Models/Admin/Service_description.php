@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,6 +17,4 @@ class Service_description extends Model
     {
         return $this->belongsTo(Service::class, 'service_id');
     }
-
-
 }

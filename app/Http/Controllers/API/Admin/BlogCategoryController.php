@@ -1,49 +1,52 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\API\Admin;
 
-use App\Models\Models\Admin\BlogCategory;
+use App\Http\Controllers\API\Controller;
+use App\Models\Admin\Blog_category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
-class BlogCategoryController
+class BlogCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return Blog_category::with('blog')->get();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    public function show($id)
+    {
+        return Blog_category::with('blog')->findOrFail($id);
+    }
+
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255'
+        ]);
+
+        $blog_category = Blog_category::create($validated);
+
+        return response()->json($blog_category, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(BlogCategory $blogCategory)
+    public function update(Request $request, Blog_category $blog_category)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'sometimes|string|max:255'
+        ]);
+
+        $blog_category->update($validated);
+
+
+        return response()->json($blog_category, 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, BlogCategory $blogCategory)
+    public function destroy(Blog_category $blog_category)
     {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(BlogCategory $blogCategory)
-    {
-        //
+        dd($blog_category->delete());
+
+        return response()->json(['message' => 'Blog deleted successfully'], 200);
     }
 }

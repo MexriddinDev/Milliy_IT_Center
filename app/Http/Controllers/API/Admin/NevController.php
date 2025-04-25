@@ -1,49 +1,61 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\API\Admin;
 
-use App\Models\Models\Admin\Nev;
+use App\Http\Controllers\API\Controller;
+use App\Models\Admin\Nev;
 use Illuminate\Http\Request;
 
-class NevController
+class NevController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        return Nev::with('new_category')->get();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Bitta yangilikni chiqarish
+    public function show($id)
+    {
+        return Nev::with('new_category')->findOrFail($id);
+    }
+
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'new_category_id'=> 'required|exists:new_categories,id',
+            'title'=>'required|string|max:255',
+            'description'=>'required|string',
+            'image'=>'required|string',
+
+        ]);
+
+        $nev = Nev::create($validated);
+
+        return response()->json($nev, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Nev $nev)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Nev $nev)
     {
-        //
+        $validated = $request->validate([
+            'new_category_id'=> 'sometimes|exists:new_categories,id',
+            'title'=>'sometimes|string|max:255',
+            'description'=>'sometimes|string',
+            'image'=>'nullable|string',
+
+        ]);
+
+        $nev->update($validated);
+
+        return response()->json($nev, 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Nev $nev)
     {
-        //
+        $nev->delete();
+
+        return response()->json(['message' => 'Blog deleted successfully'], 200);
     }
+
+
 }

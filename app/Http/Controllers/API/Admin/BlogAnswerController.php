@@ -1,49 +1,32 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\API\Admin;
 
-use App\Models\Models\Admin\BlogAnswer;
-use Illuminate\Http\Request;
 
-class BlogAnswerController
+use App\Http\Controllers\API\Controller;
+use App\Models\Admin\Blog_answer;
+
+class BlogAnswerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        return Blog_answer::with('blog')->get();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    public function show($id)
+    {
+        return Blog_answer::with('blog')->findOrFail($id);
+    }
+
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+
+        ]);
+
+        $blog = Blog_answer::create($validated);
+
+        return response()->json($blog, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(BlogAnswer $blogAnswer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, BlogAnswer $blogAnswer)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(BlogAnswer $blogAnswer)
-    {
-        //
-    }
 }

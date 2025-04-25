@@ -14,8 +14,10 @@ use App\Http\Controllers\API\NewCategoryController;
 use App\Http\Controllers\API\PartnerController;
 use App\Http\Controllers\API\ServiceController;
 use App\Http\Controllers\API\ServiceDescriptionController;
-use App\Models\Service_description;
-use Illuminate\Http\Request;
+
+
+
+
 use Illuminate\Support\Facades\Route;
 
 Route::get('/users', [ClientController::class, 'index']);
@@ -63,6 +65,7 @@ Route::get('/services', [ServiceController::class, 'index']);
 
 Route::get('service-description/{id}', [ServiceDescriptionController::class, 'show']);
 Route::get('service-description', [ServiceDescriptionController::class, 'index']);
+
 
 
 

@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\API\Admin;
+namespace App\Http\Controllers\Api\Admin;
 
-use App\Models\Admin\Category;
+use App\Models\Admin\Blog_answer;
 use Illuminate\Http\Request;
 
-class CategoryController
+class BlogAnswerController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(){
-        return Category::with('services')->get();
+    public function index()
+    {
+        //
     }
 
     /**
@@ -25,15 +26,15 @@ class CategoryController
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Blog_answer $blogAnswer)
     {
-        return Category::findOrFail($id);
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Blog_answer $blogAnswer)
     {
         //
     }
@@ -41,7 +42,7 @@ class CategoryController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $category)
+    public function destroy(Blog_answer $blogAnswer)
     {
         //
     }

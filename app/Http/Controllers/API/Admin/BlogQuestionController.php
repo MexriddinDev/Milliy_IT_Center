@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\API\Admin;
 
-use App\Models\Models\Admin\BlogQuestion;
+use App\Models\Admin\Blog_question;
 use Illuminate\Http\Request;
 
 class BlogQuestionController
@@ -10,9 +10,8 @@ class BlogQuestionController
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
+    public function index(){
+        return Blog_question::with('blog')->get();
     }
 
     /**
@@ -26,9 +25,8 @@ class BlogQuestionController
     /**
      * Display the specified resource.
      */
-    public function show(BlogQuestion $blogQuestion)
-    {
-        //
+    public function show($id){
+        return Blog_question::with('blog')->findOrFail($id);
     }
 
     /**

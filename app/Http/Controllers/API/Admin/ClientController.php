@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Api\Admin;
+namespace App\Http\Controllers\API\Admin;
 
-use App\Models\Models\Admin\Client;
+use App\Models\Admin\Client;
 use Illuminate\Http\Request;
 
 class ClientController
@@ -12,7 +12,7 @@ class ClientController
      */
     public function index()
     {
-        //
+        return Client::all();
     }
 
     /**
@@ -26,9 +26,11 @@ class ClientController
     /**
      * Display the specified resource.
      */
-    public function show(Client $client)
+    public function show($id)
     {
-        //
+        return Client::findOrFail($id);
+
+
     }
 
     /**
