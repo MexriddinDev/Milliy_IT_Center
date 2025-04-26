@@ -4,7 +4,7 @@ namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Blog_category extends Model
+class BlogCategory extends Model
 {
     protected $table = 'blog_categories';
     protected $fillable = [
@@ -16,6 +16,8 @@ class Blog_category extends Model
         return $this->hasMany(Blog::class, 'blog_category_id');
 
     }
+
+
 
 
 
