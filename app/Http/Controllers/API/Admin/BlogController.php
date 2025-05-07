@@ -13,7 +13,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return response()->json(Blog::with('category')->get(), 200);
+        return Blog::with('category')->get();
     }
 
     /**
@@ -39,15 +39,17 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        $blog = Blog::with('category')->findOrFail($id);
-        return response()->json($blog, 200);
+        return Blog::with('category')->findOrFail($id);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, $id)
     {
+        $blog = Blog::findOrFail($id);
+
+
         $validated = $request->validate([
             'blog_category_id' => 'sometimes|exists:blogs,id',
             'title' => 'sometimes|string|max:255',
@@ -65,8 +67,10 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy(Request $request, $id)
     {
+        $blog = Blog::findOrFail($id);
+
         $blog->delete();
 
         return response()->json(['message' => 'Blog deleted successfully'], 200);

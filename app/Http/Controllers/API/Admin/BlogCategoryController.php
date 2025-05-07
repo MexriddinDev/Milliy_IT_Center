@@ -31,23 +31,25 @@ class BlogCategoryController extends Controller
         return response()->json($blog_category, 201);
     }
 
-    public function update(Request $request, BlogCategory $blog_category)
+    public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'name' => 'sometimes|string|max:255'
+            'name' => 'required|string|max:255' // sometimes o‘rniga required qilib ko‘ring
         ]);
 
+        $blog_category = BlogCategory::findOrFail($id);
         $blog_category->update($validated);
-
-
         return response()->json($blog_category, 200);
     }
 
-    public function destroy(BlogCategory $blog_category)
+    public function destroy(Request $request, $id)
     {
-
+        $blog_category=BlogCategory::findOrFail($id);
         $blog_category->delete();
         return response()->json(['message' => 'Blog category deleted successfully'], 200);
+
+
     }
+
 
 }

@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('api/admin')->group(function () {
 
-    Route::apiResource('blog_category', BlogCategoryController::class);
-    Route::apiResource('blog', BlogController::class);
-    Route::apiResource('news-categories', NewCategoryController::class);
-    Route::apiResource('news', NevController::class);
+    Route::resource('blog_category', BlogCategoryController::class);
+    Route::resource('blog', BlogController::class);
+    Route::resource('news-categories', NewCategoryController::class);
+    Route::resource('news', NevController::class);
 });

@@ -11,7 +11,7 @@ class ServiceController extends Controller
     public function index(): \Illuminate\Http\JsonResponse
     {
         $categories = Category::query()->with('services')->get();
-        return response()->json($categories);
+        return response()->json($categories, 200);
     }
 
     public function show($id)
