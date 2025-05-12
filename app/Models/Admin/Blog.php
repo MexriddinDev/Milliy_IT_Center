@@ -2,6 +2,7 @@
 
 namespace App\Models\Admin;
 
+use App\Models\Blog_category;
 use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('nevs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('new_category_id')->constrained('new_categories');
+            $table->foreignId('new_category_id')->constrained('new_categories')->onDelete('cascade');
             $table->string('title')->nullable();
-            $table->string('description')->nullable();
-            $table->string('image')->nullable();
+            $table->text('description')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('phone');
             $table->string('company_name');
             $table->string('type_service');
-            $table->string('message');
+            $table->text('message');
             $table->timestamps();
         });
     }

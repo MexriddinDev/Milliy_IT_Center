@@ -42,14 +42,13 @@ class BlogCategoryController extends Controller
         return response()->json($blog_category, 200);
     }
 
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
-        $blog_category=BlogCategory::findOrFail($id);
+        $blog_category = BlogCategory::findOrFail($id);
         $blog_category->delete();
         return response()->json(['message' => 'Blog category deleted successfully'], 200);
-
-
     }
+
 
 
 }
