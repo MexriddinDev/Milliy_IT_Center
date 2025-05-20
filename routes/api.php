@@ -25,7 +25,6 @@ Route::post('/users', [ClientController::class, 'store']);
 
 Route::get('/clients', [ClientController::class, 'index']);
 Route::get('/clients/{id}', [ClientController::class, 'show']);
-Route::post('/clients', [ClientController::class, 'store']);
 
 
 Route::get('/news/{id}',[NevController::class, 'show']);
