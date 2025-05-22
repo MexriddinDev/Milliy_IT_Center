@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class New_category extends Model
 {
+    use \Illuminate\Database\Eloquent\Factories\HasFactory;
     protected $table = 'new_categories'; // Correct table name
     protected $fillable = [
         'name'

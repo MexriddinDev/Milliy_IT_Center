@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Nev extends Model
 {
+    use \Illuminate\Database\Eloquent\Factories\HasFactory;
     protected $table = 'nevs'; // Correct table name
     protected $fillable = [
         'new_category_id',

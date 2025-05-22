@@ -2,22 +2,21 @@
 
 namespace Database\Factories;
 
+use App\Models\Nev;
+use App\Models\New_category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\News>
- */
 class NewsFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = Nev::class;
+
+    public function definition()
     {
         return [
-            //
+            'new_category_id' => New_category::factory(), // Yangi kategoriya yaratiladi
+            'title' => $this->faker->sentence(),
+            'description' => $this->faker->paragraph(),
+            'image' => $this->faker->imageUrl(640, 480, 'news', true), // 640x480 o'lchamdagi yangilik rasmi URL
         ];
     }
 }
