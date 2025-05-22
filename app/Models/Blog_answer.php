@@ -18,4 +18,8 @@ class Blog_answer extends Model
     public function question(){
         return $this->belongsTo(Blog_question::class, 'blog_question_id');
     }
+    public function blog()
+    {
+        return $this->belongsTo(Blog::class);
+    }
 }

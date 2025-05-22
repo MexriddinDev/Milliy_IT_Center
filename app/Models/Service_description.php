@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service_description extends Model
 {
+    use \Illuminate\Database\Eloquent\Factories\HasFactory;
     protected $table = 'service_descriptions';
     protected $fillable = [
         'service_id',

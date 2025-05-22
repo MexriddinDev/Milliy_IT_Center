@@ -2,23 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Blog_question;
-use App\Models\Blog_answer;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Blog_answer;
 
 class Blog_answerFactory extends Factory
 {
     protected $model = Blog_answer::class;
 
-    public function definition()
+    public function definition(): array
     {
-        $question = Blog_question::factory()->create();
-
         return [
-            'blog_question_id' => $question->id,
-            'text' => $this->faker->paragraph,
-            'created_at' => now(),
-            'updated_at' => now(),
+            'blog_question_id' => 1,
+            'text' => $this->faker->sentence,
         ];
     }
 }

@@ -20,4 +20,9 @@ class Blog extends Model
     public function category(){
         return $this->belongsTo(Blog_category::class, 'blog_category_id');
     }
+    public function blog_questions()
+    {
+        return $this->hasMany(Blog_question::class);
+    }
+
 }

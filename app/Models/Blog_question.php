@@ -19,6 +19,13 @@ class Blog_question extends Model
         return $this->hasMany(Blog_answer::class, 'blog_question_id');
     }
 
+    // App\Models\Blog_question.php
+    public function blog()
+    {
+        return $this->belongsTo(Blog::class);
+    }
+
+
 
 
 
