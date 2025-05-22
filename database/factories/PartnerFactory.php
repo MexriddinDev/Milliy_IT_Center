@@ -2,22 +2,23 @@
 
 namespace Database\Factories;
 
+use App\Models\Partner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Partner>
- */
 class PartnerFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    protected $model = Partner::class;
+
+    public function definition()
     {
         return [
-            //
+            'name' => $this->faker->company(),
+            'image' => $this->faker->imageUrl(410, 512),
+            'title' => $this->faker->catchPhrase(),
+            'description' => $this->faker->paragraph(),
+            'why_this_partner' => $this->faker->sentence(),
+            'main_chances' => $this->faker->sentence(),
+            'our_cooperation' => $this->faker->sentence(),
         ];
     }
 }

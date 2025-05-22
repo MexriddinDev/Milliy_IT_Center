@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Partner extends Model
 {
+    use \Illuminate\Database\Eloquent\Factories\HasFactory;
     protected $table = 'partners';
     protected $fillable = [
         'name',

@@ -1,7 +1,6 @@
 <?php
 
 
-// tests/Feature/CategoryApiTest.php
 
 namespace Tests\Feature\User;
 
